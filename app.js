@@ -17,7 +17,7 @@ let hls = null;
 
 // ⚠️ ВАЖНО: Замени на свой ngrok URL после запуска ngrok!
 // Например: const API_URL = 'https://abc123.ngrok-free.app';
-const API_URL = 'ТВОЙ_NGROK_URL_СЮДА';  // ← ИЗМЕНИ ЭТО!
+const API_URL = 'https://f44a1aa74ba2.ngrok-free.app';  // ← ИЗМЕНИ ЭТО!
 
 // ============= ИНИЦИАЛИЗАЦИЯ =============
 
