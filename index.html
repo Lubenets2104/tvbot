@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>TVbot - Live Stream</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Telegram Web App SDK -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Заголовок -->
+        <div class="header">
+            <div class="logo">
+                <span class="logo-icon">📺</span>
+                <span class="logo-text">TVbot</span>
+            </div>
+            <div class="user-info">
+                <span id="username">Загрузка...</span>
+                <span id="subscription-badge" class="badge"></span>
+            </div>
+        </div>
+
+        <!-- Статус трансляции -->
+        <div id="stream-status" class="stream-status">
+            <div class="status-indicator"></div>
+            <span id="status-text">Проверка трансляции...</span>
+        </div>
+
+        <!-- Видео плеер -->
+        <div class="video-container">
+            <video id="video-player" class="video-player" controls playsinline></video>
+            <div id="no-stream" class="no-stream">
+                <div class="no-stream-icon">📡</div>
+                <h2>Трансляция не найдена</h2>
+                <p>Ожидайте начала трансляции</p>
+            </div>
+            <div id="access-denied" class="access-denied" style="display: none;">
+                <div class="access-denied-icon">🔒</div>
+                <h2>Требуется подписка</h2>
+                <p>Купите доступ для просмотра</p>
+                <button id="buy-access-btn" class="btn btn-primary">💎 Купить доступ</button>
+            </div>
+        </div>
+
+        <!-- Информация о стриме -->
+        <div class="stream-info">
+            <h3 id="stream-title">Live Stream</h3>
+            <div class="stream-meta">
+                <span id="viewers">👥 0 зрителей</span>
+                <span id="quality">📊 Загрузка...</span>
+            </div>
+        </div>
+
+        <!-- Действия -->
+        <div class="actions">
+            <button id="donate-btn" class="btn btn-secondary">
+                <span>💰</span>
+                <span>Донат</span>
+            </button>
+            <button id="fullscreen-btn" class="btn btn-secondary">
+                <span>⛶</span>
+                <span>Полный экран</span>
+            </button>
+            <button id="refresh-btn" class="btn btn-secondary">
+                <span>🔄</span>
+                <span>Обновить</span>
+            </button>
+        </div>
+
+        <!-- Чат (для премиум пользователей) -->
+        <div id="chat-container" class="chat-container" style="display: none;">
+            <div class="chat-header">
+                <span>💬 Чат</span>
+                <button id="close-chat" class="btn-close">×</button>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <div class="chat-message system">Добро пожаловать в чат!</div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="message-input" placeholder="Введите сообщение...">
+                <button id="send-message" class="btn btn-primary">Отправить</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="app.js"></script>
+</body>
+</html>
